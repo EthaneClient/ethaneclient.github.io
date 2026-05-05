@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="Ethane.png">
 <title>Ethane Client — Coming Soon</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Exo+2:wght@300;400;600;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -195,6 +196,32 @@
     background: rgba(0,170,255,0.07);
     text-transform: uppercase;
     animation: badgePulse 3s ease-in-out infinite;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .nav-link {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--eth-muted);
+    padding: 0.35rem 0.9rem;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    transition: color 0.2s, border-color 0.2s, background 0.2s;
+  }
+
+  .nav-link:hover {
+    color: var(--eth-blue-hot);
+    border-color: var(--eth-blue-dim);
+    background: rgba(0,170,255,0.06);
   }
 
   @keyframes badgePulse {
@@ -563,6 +590,8 @@
 
   /* ── RESPONSIVE ───────────────────────────────────── */
   @media (max-width: 600px) {
+    .nav-links { gap: 0.3rem; }
+    .nav-link { font-size: 0.75rem; padding: 0.3rem 0.6rem; }
     .rings { width: 320px; height: 320px; }
     .ring-1 { width: 220px; height: 220px; margin: -110px 0 0 -110px; }
     .ring-2 { width: 280px; height: 280px; margin: -140px 0 0 -140px; }
@@ -574,6 +603,8 @@
     .logo-wrap { width: 120px; height: 120px; }
   }
 </style>
+<base target="_blank">
+<base target="_blank">
 </head>
 <body>
 
@@ -603,7 +634,11 @@
       <img src="https://iili.io/BZ3FBLl.png" alt="Ethane Client logo">
       <strong>Ethane</strong>
     </a>
-    <span class="nav-badge">Coming Soon</span>
+    <div class="nav-links">
+      <a href="account.html" class="nav-link">Accounts</a>
+      <a href="https://KirkClient.site" class="nav-link" target="_blank" rel="noopener noreferrer">Kirk</a>
+      <span class="nav-badge">Coming Soon</span>
+    </div>
   </div>
 </nav>
 
