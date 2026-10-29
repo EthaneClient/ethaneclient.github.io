@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ethane Client</title>
-<meta name="description" content="Ethane: a Fabric client for Minecraft 1.21.11. 55 modules, an ImGui click GUI, and bypasses we update faster than anticheats can patch them.">
+<title>Ethane: Free &amp; Open Source Utility Client for Fabric 1.21.11</title>
+<meta name="description" content="Ethane is the best free and open source utility client for Minecraft Fabric 1.21.11. 55 modules, an ImGui click GUI, and bypasses we update faster than anticheats can patch them.">
 <meta name="theme-color" content="#04060c">
-<meta property="og:title" content="Ethane Client">
-<meta property="og:description" content="Fabric client for 1.21.11. Stay cold.">
+<meta property="og:title" content="Ethane: Free &amp; Open Source Utility Client">
+<meta property="og:description" content="The best free and open source utility client for Minecraft Fabric 1.21.11. Stay cold.">
 <meta property="og:image" content="Ethane.png">
 <link rel="icon" type="image/png" href="Ethane.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -96,11 +96,15 @@
     font-size: clamp(3.4rem, 7.6vw, 7.2rem); line-height: .86; letter-spacing: -.02em;
     margin: 22px 0 26px;
   }
-  h1 span { color: transparent; -webkit-text-stroke: 2px var(--ice); text-shadow: 0 0 40px rgba(47,180,255,.35); }
+  h1 span { background: linear-gradient(180deg, var(--ice-hi), var(--ice) 55%, var(--ice-lo)); -webkit-background-clip: text; background-clip: text; color: transparent; filter: drop-shadow(0 0 28px rgba(47,180,255,.35)); }
+  .tagline { font-family: 'Unbounded', sans-serif; font-weight: 600; font-size: clamp(1.05rem, 1.6vw, 1.3rem); line-height: 1.3; letter-spacing: -.01em; max-width: 24em; margin-bottom: 14px; }
+  .tagline em { font-style: normal; color: var(--ice); }
   .lede { color: var(--dim); font-size: 1.12rem; max-width: 30em; margin-bottom: 34px; }
   .lede b { color: var(--ink); font-weight: 600; }
   .ctas { display: flex; gap: 12px; flex-wrap: wrap; }
-  .fine { margin-top: 18px; font-family: 'JetBrains Mono', monospace; font-size: .74rem; color: var(--faint); letter-spacing: .04em; }
+  .fine { margin-top: 18px; font-family: 'JetBrains Mono', monospace; font-size: .74rem; color: var(--dim); letter-spacing: .04em; }
+  .fine a { color: var(--ice-hi); border-bottom: 1px solid rgba(139,225,255,.3); }
+  .fine a:hover { border-color: var(--ice-hi); }
 
   .demo-hint { margin-top: 14px; font-family: 'JetBrains Mono', monospace; font-size: .74rem; color: var(--dim); }
   .demo-hint kbd { font-family: inherit; color: var(--ice-hi); border: 1px solid var(--faint); padding: 0 5px; border-radius: 3px; }
@@ -163,7 +167,7 @@
   .tickers { position: relative; height: 150px; overflow: hidden; margin: 30px 0 0; }
   .tick { position: absolute; left: -5%; width: 110%; top: 50%; overflow: hidden; white-space: nowrap; padding: 14px 0; }
   .tick.a { background: var(--ice); color: #001326; transform: translateY(-50%) rotate(-2.5deg); z-index: 1; }
-  .tick.b { background: #0a1426; color: transparent; -webkit-text-stroke: 1px rgba(139,225,255,.35); transform: translateY(-50%) rotate(2deg); }
+  .tick.b { background: #0a1426; color: rgba(139,225,255,.28); transform: translateY(-50%) rotate(2deg); }
   .tick-track { display: inline-flex; animation: slide 60s linear infinite; }
   .tick.b .tick-track { animation-direction: reverse; animation-duration: 80s; }
   .tick span { font-family: 'Unbounded', sans-serif; font-weight: 800; font-size: 1.15rem; text-transform: uppercase; letter-spacing: .02em; padding-right: 26px; }
@@ -195,7 +199,7 @@
   .steps { list-style: none; margin-top: 34px; }
   .steps li { display: grid; grid-template-columns: 64px 1fr; padding: 22px 0; border-top: 1px solid var(--line); }
   .steps li:last-child { border-bottom: 1px solid var(--line); }
-  .steps b { font-family: 'Unbounded', sans-serif; font-size: 1.5rem; font-weight: 800; color: transparent; -webkit-text-stroke: 1px var(--ice); line-height: 1.1; }
+  .steps b { font-family: 'JetBrains Mono', monospace; font-size: 1.25rem; font-weight: 500; color: var(--ice); line-height: 1.3; }
   .steps h3 { font-size: 1.2rem; font-weight: 700; letter-spacing: .02em; }
   .steps p { color: var(--dim); }
   .steps a { color: var(--ice-hi); border-bottom: 1px solid rgba(139,225,255,.3); }
@@ -219,17 +223,22 @@
   /* ── end ── */
   .end { position: relative; padding: 170px 0 0; text-align: center; overflow: hidden; }
   .giant {
-    font-family: 'Unbounded', sans-serif; font-weight: 900; font-size: 20.5vw; line-height: .8; letter-spacing: -.04em;
-    color: transparent; -webkit-text-stroke: 1px rgba(139,225,255,.22);
-    background: linear-gradient(90deg, transparent 0 40%, rgba(47,180,255,.55) 50%, transparent 60% 100%) 0 0 / 300% 100%;
+    font-family: 'Unbounded', sans-serif; font-weight: 900; font-size: 16vw; line-height: .78; letter-spacing: -.02em;
+    color: transparent;
+    background:
+      linear-gradient(100deg, transparent 0 42%, rgba(139,225,255,.35) 50%, transparent 58% 100%) 0 0 / 300% 100% no-repeat,
+      linear-gradient(180deg, rgba(47,180,255,.22), rgba(47,180,255,.02) 85%);
     -webkit-background-clip: text; background-clip: text;
-    animation: sweep 7s linear infinite; user-select: none; margin-top: 60px; white-space: nowrap;
+    animation: sweep 8s linear infinite; user-select: none; margin-top: 80px; white-space: nowrap;
   }
-  @keyframes sweep { from { background-position: 100% 0; } to { background-position: -50% 0; } }
-  .end h2 { margin-bottom: 30px; }
+  @keyframes sweep { from { background-position: 100% 0, 0 0; } to { background-position: -50% 0, 0 0; } }
+  .end h2 { margin-bottom: 18px; }
+  .end-sub { color: var(--dim); font-size: 1.1rem; max-width: 32em; margin: 0 auto 32px; }
+  .end-sub b { color: var(--ink); font-weight: 600; }
+  .end-ctas { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
 
   footer { border-top: 1px solid var(--line); padding: 26px 0 34px; }
-  .foot { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; font-size: .85rem; color: var(--faint); }
+  .foot { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; font-size: .85rem; color: var(--dim); }
   .foot nav { position: static; display: flex; gap: 22px; border: 0; }
   .foot nav a { color: var(--dim); } .foot nav a:hover { color: var(--ink); }
 
@@ -287,11 +296,12 @@
     </div>
     <div class="hero-grid">
       <div>
-        <p class="build"><i></i>build 1.0.0 &nbsp;/&nbsp; fabric 1.21.11</p>
+        <p class="build"><i></i>build 1.0.0 &nbsp;/&nbsp; fabric 1.21.11 &nbsp;/&nbsp; free &amp; open source</p>
         <h1>Stay<br><span>cold.</span></h1>
       </div>
       <div>
-        <p class="lede">Ethane is a Fabric client for 1.21.11. <b>55 modules</b>, an ImGui click GUI, and bypasses we update faster than anticheats can patch them.</p>
+        <p class="tagline">The best <em>free</em> and <em>open source</em> utility client for Minecraft Fabric 1.21.11.</p>
+        <p class="lede"><b>55 modules</b>, an ImGui click GUI, and bypasses we update faster than anticheats can patch them. No cost, and every line of code is public.</p>
         <div class="ctas">
           <a class="btn btn-dl cut" href="https://github.com/EthaneClient/Ethane/releases/download/JAR/Ethane.jar">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square"><path d="M12 3v13M6 10l6 6 6-6M4 21h16"/></svg>
@@ -302,7 +312,7 @@
             Test Client Here
           </a>
         </div>
-        <p class="fine">3.3 MB &nbsp;&middot;&nbsp; java 21+ &nbsp;&middot;&nbsp; fabric loader 0.17.3+</p>
+        <p class="fine">3.3 MB &nbsp;&middot;&nbsp; java 21+ &nbsp;&middot;&nbsp; fabric loader 0.17.3+ &nbsp;&middot;&nbsp; <a href="https://github.com/EthaneClient/Ethane" target="_blank" rel="noopener noreferrer">source on GitHub</a></p>
       </div>
     </div>
   </div>
@@ -347,12 +357,19 @@
 
 <section class="end">
   <div class="wrap rv">
-    <p class="label">Ethane.jar · 3.3 MB</p>
+    <p class="label">Free &middot; Open source &middot; Fabric 1.21.11</p>
     <h2>Your move.</h2>
-    <a class="btn btn-dl cut" href="https://github.com/EthaneClient/Ethane/releases/download/JAR/Ethane.jar">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square"><path d="M12 3v13M6 10l6 6 6-6M4 21h16"/></svg>
-      Download Ethane
-    </a>
+    <p class="end-sub">The best free utility client on Fabric 1.21.11. <b>Download it, read the source, make it yours.</b></p>
+    <div class="end-ctas">
+      <a class="btn btn-dl cut" href="https://github.com/EthaneClient/Ethane/releases/download/JAR/Ethane.jar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square"><path d="M12 3v13M6 10l6 6 6-6M4 21h16"/></svg>
+        Download Ethane
+      </a>
+      <a class="btn btn-alt cut" href="https://github.com/EthaneClient/Ethane" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="square"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg>
+        View Source
+      </a>
+    </div>
   </div>
   <div class="giant" aria-hidden="true">ETHANE</div>
 </section>
@@ -365,7 +382,7 @@
       <a href="https://discord.gg/6E9KE2T8PY" target="_blank" rel="noopener noreferrer">Discord</a>
       <a href="account.html">Account</a>
     </nav>
-    <span>© 2026 Ethane · not affiliated with Mojang AB</span>
+    <span>© 2026 Ethane · free &amp; open source · not affiliated with Mojang AB</span>
   </div>
 </footer>
 
